@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View, FlatList} from 'react-native';
-
 import {Text, View, Image, StyleSheet} from 'react-native';
+
 import {FlatList} from 'react-native-gesture-handler';
 
 class Main extends Component {
@@ -26,17 +25,17 @@ class Main extends Component {
     }
 
     _carregarLancamentos = async () => {
-        await fetch('http://localhost:5000/api/lancamentos')
+        await fetch('http://192.168.3.47:5000/api/Lancamento')
         .then(resposta => resposta.json())
-        .then(data => this.setState({categorias: data}))
+        .then(data => this.setState({lancamentos: data}))
         .catch(erro => console.warn(erro));
     };
 
     render() {
         return (
             <FlatList
-              data={this.state.categorias}
-                keyExtractor={item => item.idCategoria}
+              data={this.state.lancamentos}
+                keyExtractor={item => item.idlancamentos}
                 renderItem={({item}) => (
                     <View>
                         <Text>{item.nome}</Text>
@@ -49,7 +48,7 @@ class Main extends Component {
 
 const styles = StyleSheet.create({
     tabBarEstilizacao:
-    {width: 25, height: 25, tintColor: 'white'}
+    {width: 25, height: 25,}
 })
 
 export default Main;

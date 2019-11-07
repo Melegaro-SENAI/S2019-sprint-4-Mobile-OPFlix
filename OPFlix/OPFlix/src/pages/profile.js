@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
-import {Text, AsyncStorage} from 'react-native';
+import {Text, AsyncStorage, Image, StyleSheet} from 'react-native';
 
 class Profile extends Component {
+    static navigationOptions = {
+        tabBarIcon: () => (
+            <Image
+                source={require('../assets/110825-pipoca.png')}
+                style={styles.tabBarEstilizacao}
+            />
+        ),
+    };
+
     constructor() {
         super();
         this.state = {
@@ -26,5 +35,10 @@ class Profile extends Component {
         return <Text>{this.state.tokenLocal}</Text>;
     }
 }
+
+const styles = StyleSheet.create({
+    tabBarEstilizacao:
+    {width: 25, height: 25,}
+})
 
 export default Profile;

@@ -1,4 +1,4 @@
-import React, {Compoenent} from 'react';
+import React, {Component} from 'react';
 
 import {
     Text,
@@ -16,16 +16,16 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            email: '',
-            senha: '',
+            email: 'erik@gmail.com',
+            senha: '123456',
         };
     }
 
     _realizarLogin = async () => {
-        await fetch('http://http://localhost:5000/api/Login', {
+        await fetch('http://192.168.3.47:5000/api/Login', {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
+                'Accept': 'application/json',
                 'Content-Type' : 'application/json',
             },
             body: JSON.stringify({
@@ -34,7 +34,7 @@ class Login extends Component {
             }),
         })
             .then(resposta => resposta.json())
-            .then(data => this,_irParaHome(data.token))
+            .then(data => this._irParaHome(data.token))
             .catch(erro => console.warn(erro));
     };
 
