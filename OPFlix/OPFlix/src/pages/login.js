@@ -38,7 +38,7 @@ class Login extends Component {
             .catch(erro => console.warn(erro));
     };
 
-    _irParaHome = async tokenAReceber => {
+    _irParaHome = async (tokenAReceber) => {
         if (tokenAReceber != null) {
             try {
                 await AsyncStorage.setItem('@opflix:token', tokenAReceber);
@@ -46,6 +46,10 @@ class Login extends Component {
             } catch (error) {}
         }
     };
+
+    _irDeCadastro = () => {
+        this.props.navigation.navigate('MainNavigator');
+    }
 
     render() {
         return (
@@ -63,9 +67,15 @@ class Login extends Component {
                 <TouchableOpacity onPress={this._realizarLogin}>
                     <Text>Login</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={this._irParaCadastro}>
+                    <Text style={{color: 'blue'}}>
+                        Cadastre-se
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     }
 }
+
 
 export default Login;

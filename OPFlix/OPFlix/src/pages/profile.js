@@ -2,15 +2,6 @@ import React, {Component} from 'react';
 import {Text, AsyncStorage, Image, StyleSheet} from 'react-native';
 
 class Profile extends Component {
-    static navigationOptions = {
-        tabBarIcon: () => (
-            <Image
-                source={require('../assets/110825-pipoca.png')}
-                style={styles.tabBarEstilizacao}
-            />
-        ),
-    };
-
     constructor() {
         super();
         this.state = {
