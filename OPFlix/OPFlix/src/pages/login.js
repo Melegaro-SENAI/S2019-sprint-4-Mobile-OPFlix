@@ -6,6 +6,7 @@ import {
     View,
     TouchableOpacity,
     AsyncStorage,
+    StyleSheet,
 } from 'react-native';
 
 class Login extends Component {
@@ -54,20 +55,20 @@ class Login extends Component {
     render() {
         return (
             <View>
-                <TextInput
+                <TextInput style={styles.email}
                 placeholder="email"
                 onChangeText={email => this.setState({email})}
                 value={this.state.email}
                 />
-                <TextInput
+                <TextInput style={styles.email}
                 placeholder="senha"
                 onChangeText={senha => this.setState({senha})}
                 value={this.state.senha}
                 />
-                <TouchableOpacity onPress={this._realizarLogin}>
+                <TouchableOpacity style={styles.email} onPress={this._realizarLogin}>
                     <Text>Login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this._irParaCadastro}>
+                <TouchableOpacity style={styles.email} onPress={this._irParaCadastro}>
                     <Text style={{color: 'blue'}}>
                         Cadastre-se
                     </Text>
@@ -77,5 +78,12 @@ class Login extends Component {
     }
 }
 
+const styles = StyleSheet.create({
+    email:
+    {
+        backgroundColor: 'red',
+        height: 200,
+    },
+});
 
 export default Login;
