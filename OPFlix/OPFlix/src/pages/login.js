@@ -49,7 +49,7 @@ class Login extends Component {
     };
 
     _irDeCadastro = () => {
-        this.props.navigation.navigate('MainNavigator');
+        this.props.navigation.navigate('CadastroNavigator');
     }
 
     render() {
@@ -68,8 +68,8 @@ class Login extends Component {
                 <TouchableOpacity style={styles.email} onPress={this._realizarLogin}>
                     <Text>Login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.email} onPress={this._irParaCadastro}>
-                    <Text style={{color: 'blue'}}>
+                <TouchableOpacity style={styles.email} >
+                    <Text onPress={this._irDeCadastro} style={{color: 'blue'}}>
                         Cadastre-se
                     </Text>
                 </TouchableOpacity>
@@ -81,8 +81,7 @@ class Login extends Component {
 const styles = StyleSheet.create({
     email:
     {
-        backgroundColor: 'red',
-        height: 200,
+        backgroundColor: '#474747',
     },
 });
 

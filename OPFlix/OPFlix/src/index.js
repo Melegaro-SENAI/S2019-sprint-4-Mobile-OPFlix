@@ -3,19 +3,20 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import LoginScreen from './pages/login';
-import MainScreen from './pages/main'
+import LancamentosScreen from './pages/Lancamentos'
 import ProfileScreen from './pages/profile';
 import CadastroScreen from './pages/cadastro';
 
 const AuthStack = createStackNavigator({
     Sign: { screen: LoginScreen },
+    Para: { screen: CadastroScreen },
 });
-
 const Cadastro = createStackNavigator({
 
     De: { screen: LoginScreen },
     Para: { screen: CadastroScreen },
 });
+
 
 const CadastroNavigator = createBottomTabNavigator(
     {
@@ -27,18 +28,18 @@ const CadastroNavigator = createBottomTabNavigator(
 
 const MainNavigator = createBottomTabNavigator(
     {
-        Main: {
-            screen: MainScreen,
+        Lancamentos: {
+            screen: LancamentosScreen,
         },
         Profile: {
             screen: ProfileScreen,
         },
     },
     {
-        initialRouteName: 'Main',
+        initialRouteName: 'Lancamentos',
         tabBarOptions: {
-            showLabel: false,
-            showIcon: true,
+            showLabel: true,
+            showIcon: false,
             activeBackgroundColor: '#000000',
             inactiveBackgroundColor: '#2b2b2b',
             style: {
@@ -55,7 +56,6 @@ export default createAppContainer
         {
             MainNavigator,
             AuthStack,
-            Cadastro,
             CadastroNavigator,
         },
         {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 
 import { FlatList } from 'react-native-gesture-handler';
-class Main extends Component {
+class Lancamentos extends Component {
     constructor() {
         super();
         this.state = {
@@ -30,6 +30,10 @@ class Main extends Component {
                     <View>
                         <Text style={styles.title}>{item.nome}</Text>
                         <Text >{item.dataLancamento}</Text>
+                        <Image
+                            style={styles.imageIt}
+                            source={{uri: '5320567.jpg-c_215_290_x-f_jpg-q_x-xxyxx.jpg'}}
+                        />
                         <Text >{item.sinopse}</Text>
                     </View>
                 )}
@@ -50,4 +54,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Main;
+export default Lancamentos;
