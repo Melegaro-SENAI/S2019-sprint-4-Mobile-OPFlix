@@ -9,22 +9,11 @@ import CadastroScreen from './pages/cadastro';
 
 const AuthStack = createStackNavigator({
     Sign: { screen: LoginScreen },
-    Para: { screen: CadastroScreen },
-});
-const Cadastro = createStackNavigator({
-
-    De: { screen: LoginScreen },
-    Para: { screen: CadastroScreen },
 });
 
-
-const CadastroNavigator = createBottomTabNavigator(
-    {
-        Cadastro: {
-            screen: CadastroScreen,
-        },
-    },
-)
+const CadastroNavigator = createStackNavigator({
+    Para: { screen: CadastroScreen },
+});
 
 const MainNavigator = createBottomTabNavigator(
     {

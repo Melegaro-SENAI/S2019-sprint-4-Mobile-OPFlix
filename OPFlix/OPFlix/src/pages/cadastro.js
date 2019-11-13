@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, View, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TextInput, View, Text, TouchableOpacity } from 'react-native';
 
 class Cadastro extends Component {
     constructor() {
@@ -8,48 +7,51 @@ class Cadastro extends Component {
         this.state = {
             nome: '',
             email: '',
-            senha: '',
+            senha: ''
         }
     }
 
     _realizarCadastro = async() => {
         // console.warn(this.state.email + this.state.senha);
-      await fetch('http://192.168.3.47:5000/api/login', {
-        method: 'POST',
-        headers: {
-          'Accept' : 'application/json',
-          'Content-Type' : 'application/json',
-          },
-          body: JSON.stringify({
+      await fetch('http://192.168.3.47:5000/api/Usuario', {
+              nome: this.state.nome,
               email: this.state.email,
               senha: this.state.senha
-          }),
-        })
-          .then(resposta => resposta.json())
+          
+          })
+          .then(data => this._irParaHome(data))
           .catch(erro => console.warn(erro)); 
       };
 
-      _irParaHome = async (tokenAReceber) => {
-        if (tokenAReceber != null) {
-            try {
-                await AsyncStorage.setItem('@opflix:token', tokenAReceber);
-                this.props.navigation.navigate('MainNavigator');
-            } catch (error) {}
+    _irParaHome = () => {
+        try {
+            this.props.navigation.navigate('MainNavigator');
+        } catch (error) {
+            console.warn(error)
         }
-    };
-  
+    }  
     
-    render() {
-        return (
+render() { 
+    return (
         <View>
             <TextInput
+            placeholder="nome"
+            onChangeText={nome => this.setState({nome})}
+            value={this.state.nome}
+            />
+            <TextInput
             placeholder="email"
+            onChangeText={email => this.setState({email})}
+            value={this.state.email}
             />
             <TextInput
             placeholder="senha"
+            onChangeText={senha => this.setState({senha})}
+            value={this.state.senha}
             />
-            <TouchableOpacity>
-                <Text onPress={this._realizarCadastro}>Cadastro
+            <TouchableOpacity onPress={this._realizarCadastro}>
+                <Text>
+                    Cadastro
                 </Text>
             </TouchableOpacity>
         </View>
