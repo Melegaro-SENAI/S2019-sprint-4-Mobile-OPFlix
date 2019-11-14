@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
+import SplashScreen from 'react-native-splash-screen'
 
 import { FlatList } from 'react-native-gesture-handler';
 class Lancamentos extends Component {
@@ -30,10 +31,6 @@ class Lancamentos extends Component {
                     <View>
                         <Text style={styles.title}>{item.nome}</Text>
                         <Text >{item.dataLancamento}</Text>
-                        <Image
-                            style={styles.imageIt}
-                            source={{uri: '5320567.jpg-c_215_290_x-f_jpg-q_x-xxyxx.jpg'}}
-                        />
                         <Text >{item.sinopse}</Text>
                     </View>
                 )}
