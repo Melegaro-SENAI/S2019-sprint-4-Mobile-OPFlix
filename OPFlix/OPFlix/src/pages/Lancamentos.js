@@ -1,8 +1,8 @@
-import React, { Component, useEffect } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
-import SplashScreen from 'react-native-splash-screen'
-
+import React, { Component } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+
+
 class Lancamentos extends Component {
     constructor() {
         super();
