@@ -22,18 +22,18 @@ class Lancamentos extends Component {
                 
                 this.setState({ lancamentos: data })
             })
-            .catch(erro => console.warn(erro));
+            .catch(erro => console.warn(erro))
     };
 
     render() {
         return (
-            <View>
-                <TextInput
-                placeholder="Escreva uma categoria..."
-                />
-                {/* criar um textinput */}
-                {/* criar uma acao que quando o usuario digitar a categoria, deve buscar na api e listar */}
-                {/* console.warn(data.filter(x => x.categoria == 'Terror')) */}
+            // <View>
+            //     <TextInput
+            //     placeholder="Escreva uma categoria..."
+                // />
+                // {/* criar um textinput */}
+                // {/* criar uma acao que quando o usuario digitar a categoria, deve buscar na api e listar */}
+                // {/* console.warn(data.filter(x => x.categoria == 'Terror')) */}
 
                 <FlatList
                     data={this.state.lancamentos}
@@ -47,8 +47,8 @@ class Lancamentos extends Component {
                         </View>
                     )}
                 />
-            </View>
-        );
+            // {/* </View> */}
+        ); 
     }
 }
 
