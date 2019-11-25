@@ -55,6 +55,12 @@ class Login extends Component {
     render() {
         return (
             <View style={styles.fundo}>
+                <Text style={styles.mensagem_titulo}>
+                    OPFLIX
+                </Text>
+                <Text style={styles.mensagem_boasvindas}>
+                    Bem-Vindo! Faça login para acessar nossos conteúdos
+                </Text>
                 <TextInput style={styles.email}
                 placeholder="email"
                 onChangeText={email => this.setState({email})}
@@ -71,7 +77,7 @@ class Login extends Component {
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Text onPress={this._irDeCadastro} style={{color: 'blue'}}>
+                    <Text  onPress={this._irDeCadastro} style={styles.btn_cadastro}>
                         Cadastre-se
                     </Text>
                 </TouchableOpacity>
@@ -83,13 +89,14 @@ class Login extends Component {
 const styles = StyleSheet.create({
     fundo: 
     {
-        backgroundColor: 'white',
+        backgroundColor: '#545353',
         flex: 1,
         display: 'flex',
         justifyContent: 'center',
     },
     email:
     {
+        backgroundColor: '#939292',
         borderWidth: 2,
         color: '#fff',
         fontSize: 15,
@@ -101,10 +108,11 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         width: 340,
         textAlign: 'center',
-        margin: 40,
+        margin: 35,
     },
     senha:
     {
+        backgroundColor: '#939292',
         borderWidth: 2,
         color: '#fff',
         fontSize: 15,
@@ -116,11 +124,13 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         width: 340,
         textAlign: 'center',
-        margin: 40,
+        margin: 35,
+        marginTop: 10,
     },
 
     btn_login: 
     {
+        backgroundColor: '#898888',
         borderWidth: 2,
         color: '#fff',
         fontSize: 15,
@@ -132,8 +142,30 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         width: 340,
         textAlign: 'center',
-        margin: 40,
+        margin: 35,
         display: 'flex',
+        marginTop: 10,
+    },
+    btn_cadastro:
+    {
+        fontSize: 20,
+        color: 'blue',      
+        textAlign: 'center',
+    },
+    mensagem_boasvindas: 
+    {
+        fontStyle: 'italic',
+        fontSize: 20,
+        textAlign: 'center',
+        color: '#e30b0b',
+    },
+    mensagem_titulo: 
+    {
+        fontStyle: 'italic',
+        fontSize: 50,
+        textAlign: 'center',
+        color: '#e30b0b',
+        margin: 20,
     },
 });
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Text, FlatList, View, StyleSheet, AsyncStorage, TouchableOpacity } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
-// import { FlatList } from 'react-native-gesture-handler';
+import { Text, FlatList, View, StyleSheet, Image, ScrollView } from 'react-native';
+//  import { FlatList } from 'react-native-gesture-handler';
 
 class Lancamentos extends Component {
     constructor() {
@@ -19,7 +18,6 @@ class Lancamentos extends Component {
         await fetch('http://192.168.3.47:5000/api/Lancamento')
             .then(resposta => resposta.json())
             .then(data => {
-                
                 this.setState({ lancamentos: data })
             })
             .catch(erro => console.warn(erro))
@@ -27,41 +25,65 @@ class Lancamentos extends Component {
 
     render() {
         return (
-            // <View>
-            //     <TextInput
-            //     placeholder="Escreva uma categoria..."
-                // />
-                // {/* criar um textinput */}
-                // {/* criar uma acao que quando o usuario digitar a categoria, deve buscar na api e listar */}
-                // {/* console.warn(data.filter(x => x.categoria == 'Terror')) */}
+            <View style={styles.main}>
+                <ScrollView>
 
-                <FlatList
-                    data={this.state.lancamentos}
-                    keyExtractor={item => item.idlancamentos}
-                    renderItem={({ item }) => (
-                        <View>
-                            <Text style={styles.title}>{item.nome}</Text>
-                            <Text >{item.dataLancamento}</Text>
-                            <Text >{item.sinopse}</Text>
-                            <Text >{item.categoria}</Text>
-                        </View>
-                    )}
-                />
-            // {/* </View> */}
-        ); 
+                    <Text>Comédia</Text>
+                    <FlatList
+                        horizontal={true}
+                        data={this.state.lancamentos.filter(item => { return item.IdCategoria === 2 })}
+                        keyExtractor={item => item.IdLancamento}
+                        renderItem={({ item }) => (
+                            <View>
+                                <Image
+                                    style={styles.img}
+                                    source={{ uri: item.FotoLanc }}
+                                />
+                            </View>
+                        )}
+                    />
+                </ScrollView>
+            </View>
+        );
     }
 }
 
 const styles = StyleSheet.create({
-    tabBarEstilizacao:
+    // tabBarEstilizacao:
+    // {
+    //     width: 25, height: 25,
+    // },
+    // title:
+    // {
+    //     fontSize: 30,
+    //     textAlign: 'center',
+    // },
+    // estilizacaoLancamentos:
+    // {
+    //     backgroundColor: '#7482a3',
+    // },
+    // titulo: 
+    // {
+    //     fontSize: 30,
+    //     textAlign: 'center',
+    // },
+    // dataLanc:
+    // {
+    //     textAlign: 'center',
+    // },
+    // sinopse:
+    // {
+    //     textAlign: 'center',
+    // },
+    // categoria:
+    // {
+    //     textAlign: 'center',
+    // },
+    img:
     {
-        width: 25, height: 25,
+        width: 200,
+        height: 250,
     },
-    title:
-    {
-        fontSize: 30,
-    },
-
 });
 
 export default Lancamentos;
