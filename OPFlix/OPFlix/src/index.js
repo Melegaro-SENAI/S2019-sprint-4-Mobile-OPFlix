@@ -33,7 +33,8 @@ const MainNavigator = createBottomTabNavigator(
             inactiveBackgroundColor: '#2b2b2b',
             style: {
                 width: '100%',
-                height: 50
+                height: 50,
+                fontSize: 30,
             }
 
         }
